@@ -11,17 +11,17 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '18'
 
       - name: Configure npm authentication
         run: |
           echo "//registry.npmjs.org/:_authToken=${{secrets.NPM_TOKEN}}" > ~/.npmrc
-          echo "//npm.pkg.github.com/:_authToken=${{secrets.GITH_TOKEN}}" >> ~/.npmrc
+          echo "//npm.pkg.github.com/:_authToken=${{secrets.GITHUB_TOKEN}}" >> ~/.npmrc
 
       - name: Install dependencies
         run: npm install
@@ -29,8 +29,18 @@ jobs:
       - name: Build TypeScript
         run: npm run build
 
-      # - name: Publish to npm registry
-      #   run: npm publish --access public
+      - name: Publish to npm registry
+        run: npm publish --access public
+
+      - name: Modify package.json for GitHub Packages
+        run: |
+          jq '.name = "@devnshankar/logato" | .publishConfig.registry = "https://npm.pkg.github.com/"' package.json > package.json.tmp
+          mv package.json.tmp package.json
 
       - name: Publish to GitHub Packages registry
-        run: npm publish --access public --registry=https://npm.pkg.github.com
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+      - name: Revert package.json changes
+        run: git checkout package.json
