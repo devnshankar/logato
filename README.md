@@ -1,6 +1,6 @@
-![logato banner](https://res.cloudinary.com/dtoyohjdm/image/upload/v1739257843/logato.png)
-
 # Simple Logger (logato) 📜
+
+![logato banner](https://res.cloudinary.com/dtoyohjdm/image/upload/v1739257843/logato.png)
 
 A simple, fast, and minimal logger for Node.js 🚀. Perfect for logging information, warnings, errors, and more with ease and speed!
 
@@ -27,11 +27,17 @@ Once installed, you can use the logger in your Node.js project.
 ```javascript
 import logato from 'logato';
 
-// Using the logger
+// Logging to console
 logato.log('This is a log message');
 logato.info('This is an info message');
 logato.warn('This is a warning message');
 logato.error('This is an error message');
+logato.debug('This is a debug message');
+logato.success('Operation was successful!');
+
+// Enabling file logging
+logato.enableFileLoggingOption(true, 'custom_log_file.log');
+
 ```
 
 ### Methods:
