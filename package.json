@@ -1,0 +1,29 @@
+{
+  "name": "logato",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "typescript": "^4.0.0",
+    "@types/node": "^14.0.0"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devnshankar/logato.git"
+  },
+  "keywords": [
+    "logato",
+    "logger",
+    "node",
+    "logging",
+    "typescript"
+  ],
+  "author": "devnshankar",
+  "license": "MIT"
+}

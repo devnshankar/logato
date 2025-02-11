@@ -1,0 +1,36 @@
+name: Publish Package to npm and GitHub Packages
+
+on:
+  push:
+    tags:
+      - 'v*'  # Triggers when a version tag (e.g., v1.0.4) is pushed
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Configure npm authentication
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${{secrets.NPM_TOKEN}}" > ~/.npmrc
+          echo "//npm.pkg.github.com/:_authToken=${{secrets.GITH_TOKEN}}" >> ~/.npmrc
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build TypeScript
+        run: npm run build
+
+      # - name: Publish to npm registry
+      #   run: npm publish --access public
+
+      - name: Publish to GitHub Packages registry
+        run: npm publish --access public --registry=https://npm.pkg.github.com

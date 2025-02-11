@@ -1,0 +1,31 @@
+# Node.js modules
+node_modules/
+
+# Build output
+dist/
+
+# TypeScript compiled files
+*.js
+*.d.ts
+*.map
+
+# Logs
+*.log
+
+# npm package-lock files (optional, but often useful)
+package-lock.json
+
+# Debugging files
+*.vscode/
+*.idea/
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+
+# Environment variables
+.env
+
+# npm cache
+.npm/
