@@ -17,7 +17,7 @@ npm install logato
 1. Ensure you have set up GitHub Packages authentication.
 2. Run the following command to install from GitHub:
 ```bash
-npm install logato --registry=https://npm.pkg.github.com
+npm install @devnshankar/logato@0.0.2 --registry=https://npm.pkg.github.com 
 ```
 
 ## Usage 📄
