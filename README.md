@@ -5,7 +5,8 @@
 A simple, fast, and minimal logger for Node.js 🚀. Perfect for logging information, warnings, errors, and more with ease and speed!
 
 <!-- npm Downloads Badge -->
-![npm downloads](https://img.shields.io/npm/dt/logato)
+![NPM Downloads](https://img.shields.io/npm/d18m/logato)
+
 
 ## Installation 🚀
 
