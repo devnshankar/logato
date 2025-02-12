@@ -9,15 +9,31 @@ A simple, fast, and minimal logger for Node.js 🚀. Perfect for logging informa
 
 ## Installation 🚀
 
+### npm
 ```bash
 npm install logato
+```
+
+### yarn
+```bash
+yarn add logato
+```
+
+### pnpm
+```bash
+pnpm add logato
+```
+
+### bun
+```bash
+bun add logato
 ```
 
 ### Install from GitHub registry:
 1. Ensure you have set up GitHub Packages authentication.
 2. Run the following command to install from GitHub:
 ```bash
-npm install @devnshankar/logato@0.0.2 --registry=https://npm.pkg.github.com 
+npm install @devnshankar/logato@0.0.3 --registry=https://npm.pkg.github.com 
 ```
 
 ## Usage 📄
@@ -35,9 +51,9 @@ logato.error('This is an error message');
 logato.debug('This is a debug message');
 logato.success('Operation was successful!');
 
-// Enabling file logging
-logato.enableFileLoggingOption(true, 'custom_log_file.log');
-
+// Print contents of a file
+// make sure the assets folder is in the root of the project 
+logato.file('./assets/data.txt');
 ```
 
 ### Methods:
